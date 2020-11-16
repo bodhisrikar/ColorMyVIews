@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListeners() {
         val clickableViews: List<View> = listOf(mainActivityBinding.boxOneText, mainActivityBinding.boxTwoText, mainActivityBinding.boxThreeText,
-            mainActivityBinding.boxFourText, mainActivityBinding.boxFiveText, mainActivityBinding.constraintLayout)
+            mainActivityBinding.boxFourText, mainActivityBinding.boxFiveText, mainActivityBinding.constraintLayout, mainActivityBinding.redButton,
+        mainActivityBinding.yellowButton, mainActivityBinding.greenButton)
 
         for (item in clickableViews) {
             item.setOnClickListener { makeColoured(it) }
@@ -28,9 +29,12 @@ class MainActivity : AppCompatActivity() {
         when (view.id) {
             R.id.box_one_text -> view.setBackgroundColor(Color.DKGRAY)
             R.id.box_two_text -> view.setBackgroundColor(Color.GRAY)
-            R.id.box_three_text -> view.setBackgroundColor(resources.getColor(android.R.color.holo_green_light))
-            R.id.box_four_text -> view.setBackgroundColor(resources.getColor(android.R.color.holo_green_dark))
-            R.id.box_five_text -> view.setBackgroundColor(resources.getColor(android.R.color.holo_green_light))
+            R.id.box_three_text -> view.setBackgroundResource(android.R.color.holo_green_light)
+            R.id.box_four_text -> view.setBackgroundResource(android.R.color.holo_green_dark)
+            R.id.box_five_text -> view.setBackgroundResource(android.R.color.holo_green_light)
+            R.id.red_button -> mainActivityBinding.boxThreeText.setBackgroundResource(R.color.red)
+            R.id.yellow_button -> mainActivityBinding.boxFourText.setBackgroundResource(R.color.yellow)
+            R.id.green_button -> mainActivityBinding.boxFiveText.setBackgroundResource(R.color.green)
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
